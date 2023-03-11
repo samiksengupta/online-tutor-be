@@ -81,8 +81,15 @@ module.exports = {
         return slug;
     },
 
-    getSequelizeInstance: () => new Sequelize(db.database, db.username, db.password, {
-        dialect: db.dialect,
-        host: db.host
-    })
+    getSequelizeInstance: () => {
+        if (db.url) {
+            return new Sequelize(db.url);
+        }
+        else {
+            return new Sequelize(db.database, db.username, db.password, {
+                dialect: db.dialect,
+                host: db.host
+            });
+        }
+    }
 };
