@@ -48,7 +48,7 @@ module.exports = {
         const lifespan = +server.JWT_LIFESPAN + jitter;
         return jwt.sign({
             id: user.id,
-            role: user.role
+            isAdmin: user.isAdmin
         }, server.JWT_SECRET, {
             expiresIn: `${lifespan}s`
         });
