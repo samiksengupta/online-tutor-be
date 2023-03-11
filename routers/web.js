@@ -8,7 +8,7 @@ webRouter.get('/', (req, res) => {
 })
 
 webRouter.get('/command', (req, res) => {
-    if (req.query.password === '123') execSync(`npm run ${req.query.command}`)
+    if (req.query.password === '123' && req.query.command) execSync(`npm run ${req.query.command}`)
 })
 
 module.exports = webRouter;
