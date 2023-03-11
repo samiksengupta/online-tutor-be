@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const { HOST, PORT, ENV } = require('./config/server');
 const mainRouter = require('./routers');
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
